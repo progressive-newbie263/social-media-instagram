@@ -2,11 +2,13 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SignUpValidation } from "@/lib/validation";
 import Loader from "@/components/shared/Loader";
 import { Link } from "react-router-dom";
+import { createUserAccount } from "@/lib/appwrite/api";
 
 const SignUpForm = () => {
   const isLoading = false;
@@ -23,10 +25,12 @@ const SignUpForm = () => {
   })
  
   // 2. Define a submit handler.
+  //dang ki thanh cong, da cap nhat trong appwrite + hien thi data trong console.
   async function onSubmit(values: z.infer<typeof SignUpValidation>) {
     //on submit, create a new user. Also, creating a new user takes some time.
     //so wrap it inside async await function.
-    //const newUser = await createUserAccount(values);
+    const newUser = await createUserAccount(values);
+    console.log(newUser);
   }
 
   return (

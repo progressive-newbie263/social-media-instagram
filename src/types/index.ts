@@ -4,6 +4,7 @@
     + Interface cập nhật cho toàn bộ user (PUT/update) (IUpdateUser)
     + Interface tạo bài viết/post mới (INewPost)
     + Interface cập nhật bài viết mới (dùng api PUT/update) (IUpdatePost)
+    + Interface cho User/NewUser (phân chia theo state đã đki chưa ?)
 */
 
 export type INavLink = {
@@ -21,6 +22,7 @@ export type IUpdateUser = {
   file: File[];
 };
 
+//k cần set location/tags cho post
 export type INewPost = {
   userId: string;
   caption: string;
@@ -29,6 +31,7 @@ export type INewPost = {
   tags?: string;
 };
 
+//k cần set location/tags cho post
 export type IUpdatePost = {
   postId: string;
   caption: string;
