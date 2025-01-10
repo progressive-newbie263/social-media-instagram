@@ -2,6 +2,20 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+
+Hướng dẫn khởi tạo backend/db với appwrite: 
+- tạo các collection: posts, saves, users,... cần thiết bên trong project
+- với posts và users. Ta sẽ cài đặt ở settings, phần permission. Cho cả 4 tính năng CRUD cho 'Any', đảm bảo người dùng có đủ các tính năng cần thiết.
+- Với bảng POSTS. 
+    + setup attribute Users và thiết đặt quan hệ của nó với posts là (many-to-one / 1-n) cần đảm bảo, đặt documentID là NULL với mọi document liên quan.
+    + Relationship số 2, với likes là attribute key + liked là related collection. Tương tự như relationship số 1. Quan hệ là n-n/ many-to-many.
+    + Rela 3, 'caption' (string)/. Limit sẽ là 2200 từ, null, ko set gì thêm
+    + Rela 4, 'tags' (string)/. Limit cũng sẽ là 2200 từ, nhưng nó sẽ set thêm là array (gồm nhiều tags con khác nhau)
+    + Rela 5, 'imageId' (string)/. Limit cũng sẽ là 2200 từ + required.
+    + Rela 6, 'imageUrl' (url). Required.
+    + Rela 7, 'location' (string). Limit 2200.
+
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh

@@ -10,6 +10,10 @@ import Loader from "@/components/shared/Loader";
 import { Link } from "react-router-dom";
 import { createUserAccount } from "@/lib/appwrite/api";
 
+
+/*
+  TODO: Solving issues on signup form
+*/
 const SignUpForm = () => {
   const isLoading = false;
 
@@ -25,7 +29,7 @@ const SignUpForm = () => {
   })
  
   // 2. Define a submit handler.
-  //dang ki thanh cong, da cap nhat trong appwrite + hien thi data trong console.
+  //dki thành công, cập nhật trong appwrite (auth/users) + hiển thị trong console.
   async function onSubmit(values: z.infer<typeof SignUpValidation>) {
     //on submit, create a new user. Also, creating a new user takes some time.
     //so wrap it inside async await function.
@@ -36,9 +40,9 @@ const SignUpForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
-        <img src="/assets/images/logo.svg" alt="logo" />
+        <img src="/assets/images/instafraud-logo.png" style={{ width: '200px', margin: '0px'}} alt="logo" />
 
-        <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
+        <h2 className="h3-bold md:h2-bold pt-2 sm:pt-4">
           Create a new account
         </h2>
 
